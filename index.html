@@ -146,8 +146,8 @@
   html.dark .acc-count{background:#2a2a2a}
   .acc-arrow{width:18px;height:18px;flex-shrink:0;transition:transform .3s;color:var(--mid)}
   .acc-header.open .acc-arrow{transform:rotate(180deg)}
-  .acc-body{display:none;padding:0 14px 14px}
-  .acc-body.open{display:block}
+  .acc-body{display:none;padding:0 14px 14px;max-height:600px;overflow-y:auto;}
+  .acc-body.open{display:block;max-height:600px;overflow-y:auto;}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
