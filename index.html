@@ -66,8 +66,8 @@
   .hero h1 .dot{color:var(--mid)}
   .hero-sub{font-size:clamp(.9rem,2.5vw,1.05rem);color:var(--mid);font-weight:600;max-width:440px;line-height:1.6;animation:fadeUp .7s .2s ease both}
 
-  .cat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-  .cat-tab{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:800;padding:8px 18px;border-radius:20px;border:2px solid var(--black);background:transparent;color:var(--black);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+  .cat-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:32px}
+  .cat-tab{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:800;padding:8px 18px;border-radius:20px;border:2px solid var(--black);background:transparent;color:var(--black);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;width:100%;justify-content:center;}
   .cat-tab.active,.cat-tab:hover{background:var(--black);color:var(--white)}
   .cat-panel{display:none}
   .cat-panel.active{display:block}
