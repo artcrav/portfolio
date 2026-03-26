@@ -399,8 +399,9 @@
   };
 
   var proses = [
-  'proses/p1.jpg','proses/p2.jpg','proses/p3.jpg'
-  // tambah sesuai file yang diupload
+  'proses/p1.jpg','proses/v1.mp4','proses/v2.mp4','proses/v3.mp4',
+  'proses/v4.mp4','proses/v5.mp4','proses/v6.mp4','proses/v7.mp4',
+  'proses/v8.mp4'
 ];
 
   var testimoni = [
@@ -537,7 +538,10 @@
   if (!proses.length) { el.innerHTML = '<div class="grid-item-empty">✦</div>'; return; }
   el.innerHTML = proses.map(function(f) {
     var src = f.startsWith('http') ? f : BASE + f;
-    return '<div class="grid-item" onclick="openLb(\'' + src + '\')"><img src="' + src + '" alt="" loading="lazy" onerror="this.closest(\'.grid-item\').style.display=\'none\'"></div>';
+    var isVideo = f.match(/\.(mp4|webm|mov)$/i);
+return isVideo
+  ? '<div class="grid-item" onclick="openLbVideo(\'' + src + '\')"><video src="' + src + '" muted playsinline style="width:100%;height:auto;display:block;" loop autoplay></video></div>'
+  : '<div class="grid-item" onclick="openLb(\'' + src + '\')"><img src="' + src + '" alt="" loading="lazy" onerror="this.closest(\'.grid-item\').style.display=\'none\'"></div>';
   }).join('');
 })();
 
@@ -564,6 +568,12 @@
       document.documentElement.classList.add('dark');
       document.getElementById('dt-label').textContent = 'DARK';
       document.getElementById('dt-thumb').textContent = '☾';
+    }
+  function openLbVideo(src) {
+    var lb = document.getElementById('lb');
+    lb.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain"></video>';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
     }
   })();
 
