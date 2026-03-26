@@ -264,6 +264,16 @@
         </div>
       </div>
     </div>
+      <!-- Proses -->
+      <div class="acc-item">
+       <button class="acc-header" onclick="toggleAcc(this)" data-target="acc-proses">
+        <span class="acc-header-left">✸ Proses <span class="acc-count" id="cnt-proses">—</span></span>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+       </button>
+        <div class="acc-body" id="acc-proses">
+        <div class="port-grid" id="grid-proses"></div>
+      </div>
+    </div>
 
     <div class="cat-panel" id="panel-testimoni">
       <div class="cat-stitle">❥ Kata Mereka</div>
@@ -381,6 +391,11 @@
       'karya/e33.jpg','karya/e34.jpg','karya/e35.jpg'
       ]
   };
+
+  var proses = [
+  'proses/p1.jpg','proses/p2.jpg','proses/p3.jpg'
+  // tambah sesuai file yang diupload
+];
 
   var testimoni = [
     'testimoni/t1.jpg','testimoni/t2.jpg','testimoni/t3.jpg','testimoni/t4.jpg','testimoni/t5.jpg',
@@ -507,6 +522,18 @@
       return '<div class="testi-item" onclick="openLb(\'' + src + '\')"><img src="' + src + '" alt="" loading="lazy" onerror="this.closest(\'.testi-item\').style.display=\'none\'"></div>';
     }).join('');
   }
+
+  (function() {
+  var el = document.getElementById('grid-proses');
+  var cnt = document.getElementById('cnt-proses');
+  if (!el) return;
+  if (cnt) cnt.textContent = proses.length || '0';
+  if (!proses.length) { el.innerHTML = '<div class="grid-item-empty">✦</div>'; return; }
+  el.innerHTML = proses.map(function(f) {
+    var src = f.startsWith('http') ? f : BASE + f;
+    return '<div class="grid-item" onclick="openLb(\'' + src + '\')"><img src="' + src + '" alt="" loading="lazy" onerror="this.closest(\'.grid-item\').style.display=\'none\'"></div>';
+  }).join('');
+})();
 
   renderPortofolio();
   renderTestimoni();
