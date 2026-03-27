@@ -569,12 +569,6 @@ return isVideo
       document.getElementById('dt-label').textContent = 'DARK';
       document.getElementById('dt-thumb').textContent = '☾';
     }
-  function openLbVideo(src) {
-    var lb = document.getElementById('lb');
-    lb.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain"></video>';
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    }
   })();
 
   document.querySelectorAll('.cat-tab').forEach(function(btn) {
@@ -600,6 +594,13 @@ return isVideo
     lb.innerHTML = '';
     document.body.style.overflow = '';
   }
+  
+  function openLbVideo(src) {
+    var lb = document.getElementById('lb');
+    lb.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain"></video>';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+        }
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLb();
