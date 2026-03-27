@@ -609,7 +609,7 @@ return isVideo
   
   function openLbVideo(src) {
     var lb = document.getElementById('lb');
-    lb.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain"></video>';
+    lb.innerHTML = '<video src="' + src + '" controls autoplay muted playsinline style="max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain"></video>';
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
         }
